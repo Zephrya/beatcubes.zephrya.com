@@ -1,0 +1,174 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="BeatCubes | Zephrya Games">
+	<main>
+		<h1>It's time for a better rhythm experience, with <span class="text-gradient">BeatCubes.</span></h1>
+		<p class="instructions"><strong>What is BeatCubes?</strong> BeatCubes is a rythm game developed for PC.</p>
+		<ul role="list" class="link-card-grid">
+			<li class="link-card">
+				<a href="https://zephrya.itch.io/beatcubes-web">
+					<h2>Play BeatCubes on the web <span>&rarr;</span></h2>
+					<p>If BeatCubes isn't available for your device, pick this option.</p>
+				</a>
+			</li>
+			<li class="link-card">
+				<a href="https://zephrya.itch.io/beatcubespc">
+					<h2>Buy for PC<span>&rarr;</span></h2>
+					<p>$3.99. No more fees, no more payments.</p>
+				</a>
+			</li>
+			<li class="link-card">
+				<a href="https://discord.gg/mK45234hqg">
+					<h2>Discord <span>&rarr;</span></h2>
+					<p>Talk with us or other gamers!</p>
+				</a>
+			</li>
+			<li class="link-card">
+				<a href="https://zephrya.itch.io/">
+					<h2>Zephrya Games <span>&rarr;</span></h2>
+					<p>
+						Read more about us and play our games! Everything is made with
+						<svg
+							class="heart"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 512 512"
+							width="16"
+							height="16"
+							fill="currentColor"
+						>
+							<title>heart</title>
+							<path d="M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z" />
+						</svg>
+					</p>
+				</a>
+			</li>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--color-border: hsl(17, 24%, 90%);
+		--astro-gradient: linear-gradient(0deg,#4F39FA, #DA62C4);
+		--link-gradient: linear-gradient(45deg, #4F39FA, #DA62C4 30%, var(--color-border) 60%);
+		--night-sky-gradient: linear-gradient(0deg, #392362 -33%, #431f69 10%, #30216b 50%, #1f1638 100%);
+	}
+
+	h2 {
+		margin: 0;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	h2 span {
+		display: inline-block;
+		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	code {
+		font-size: 0.875em;
+		border: 0.1em solid var(--color-border);
+		border-radius: 4px;
+		padding: 0.15em 0.25em;
+	}
+
+	main {
+		margin: auto;
+    padding: 1em;
+		max-width: 60ch;
+	}
+
+	.text-gradient {
+		font-weight: 900;
+		background-image: var(--astro-gradient);
+		-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position-y: 100%;
+		border-radius: 0.4rem;
+		animation: pulse 4s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			background-position-y: 0%;
+		}
+		50% {
+			background-position-y: 80%;
+		}
+	}
+
+	.instructions {
+		line-height: 1.8;
+		margin-bottom: 2rem;
+		background-image: var(--night-sky-gradient);
+		padding: 1.5rem;
+		border-radius: 0.4rem;
+		color: var(--color-bg);
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 0.15rem;
+		background-image: var(--link-gradient);
+		background-size: 400%;
+		border-radius: 0.5rem;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1em 1.3em;
+		border-radius: 0.35rem;
+		color: var(--text-color);
+		background-color: white;
+		opacity: 0.8;
+	}
+
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+	}
+
+	.link-card:is(:hover, :focus-within) h2 {
+		color: #4F39FA;
+	}
+
+	.link-card:is(:hover, :focus-within) h2 span {
+		transform: translateX(2px);
+	}
+
+	.heart {
+		display: inline-block;
+		color: #DA62C4;
+		animation: heartbeat 3s ease-in-out infinite;
+	}
+
+	@keyframes heartbeat {
+		0%,
+		50%,
+		100% {
+			transform: scale(1);
+		}
+		5% {
+			transform: scale(1.125);
+		}
+		10% {
+			transform: scale(1.05);
+		}
+		15% {
+			transform: scale(1.25);
+		}
+	}
+</style>
